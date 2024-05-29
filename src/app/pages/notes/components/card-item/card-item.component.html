@@ -1,0 +1,46 @@
+<mat-card class="min-h-[204px] flex flex-col justify-between">
+  <mat-card-header  class="flex flex-col h-full">
+    <mat-card-title> {{ note.title || 'N/A' }}</mat-card-title>
+    <mat-card-subtitle> {{ note.description || 'N/A' }}</mat-card-subtitle>
+    <div class="h-full">
+      <mat-chip-listbox [selectable]="false" aria-label="Color selection" class="mt-4">
+
+        @for (category of (note.categories || []); track category.id) {
+          <mat-chip-option class="max-h-[25px]"  [value]="category.name">{{ category.name }}
+          </mat-chip-option>
+        }
+      </mat-chip-listbox>
+    </div>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    @if (note.isActive) {
+      <button (click)="onEdit()" mat-button matTooltip="Edit Note" color="primary">
+        <div class="flex items-center gap-2">
+          <mat-icon title="">edit</mat-icon>
+        </div>
+      </button>
+    }
+
+
+    @if (note.isActive) {
+      <button (click)="onArchive()" mat-button color="accent" matTooltip="Archive Note">
+        <div class="flex items-center gap-2">
+          <mat-icon title="">archived</mat-icon>
+        </div>
+      </button>
+    } @else {
+
+      <button (click)="onUnArchive()" mat-button color="accent" matTooltip="Unarchive Note">
+        <div class="flex items-center gap-2">
+          <mat-icon title="">unarchived</mat-icon>
+        </div>
+      </button>
+    }
+
+    <button (click)="onDelete()" mat-button matTooltip="Delete Note" color="warn">
+      <div class="flex items-center gap-2">
+        <mat-icon title="">delete</mat-icon>
+      </div>
+    </button>
+  </mat-card-actions>
+</mat-card>

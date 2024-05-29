@@ -1,0 +1,51 @@
+<div class="flex h-full w-full justify-center items-center p-5">
+  <mat-card class="w-full max-w-[400px]">
+    <mat-card-header class="p-10">
+      <div class="p-10 w-full">
+        <img class="h-[40px] w-auto mx-auto" src="./assets/logo.svg" alt="App Logo">
+      </div>
+
+    </mat-card-header>
+
+    <mat-card-content class="my-2">
+      <div class="grid gap-2 mx-4">
+        <h1 class="text-center font-bold text-[#194F80]">Sign In</h1>
+        <form class="flex flex-col my-2">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input [formControl]="emailControl" type="email" matInput placeholder="Ex. pat@example.com">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input [formControl]="passwordControl" type="password" matInput>
+          </mat-form-field>
+        </form>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="mx-4 w-full flex flex-col gap-4 text-center">
+        <button (click)="onLogin()" type="submit" [disabled]="loginFormGroup.invalid || loading" class="w-full" mat-flat-button
+                color="primary">LOGIN
+        </button>
+        <div class="flex flex-col gap-2">
+          Don't have an account?
+          <button (click)="onRedirectToRegisterView()" class="w-full" mat-stroked-button color="primary">REGISTER
+          </button>
+        </div>
+
+      </div>
+
+
+    </mat-card-actions>
+    <mat-card-footer class="border-t border-zinc-400/40 mt-4">
+      <div class="p-4 w-full text-center">
+        <p> This App has been developed by <a href="https://github.com/jhoset" target="_blank"
+                                              class="font-bold text-[#194F80]">Jhoset NG</a></p>
+      </div>
+      <app-loader [loading]="loading "></app-loader>
+    </mat-card-footer>
+  </mat-card>
+
+</div>

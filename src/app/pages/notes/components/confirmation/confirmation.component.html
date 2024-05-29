@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Delete Note</h2>
+<mat-dialog-content class="mat-typography">
+  Are you sure you want to delete?
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button (click)="onClose()" mat-stroked-button>Cancel</button>
+  <button (click)="onConfirm()" mat-flat-button color="warn">
+    <div class="flex items-center gap-2">
+      Delete
+    </div>
+  </button>
+</mat-dialog-actions>
+<app-loader [loading]="loading" ></app-loader>

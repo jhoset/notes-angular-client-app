@@ -1,0 +1,11 @@
+<svg id="Componente_19_1" data-name="Componente 19 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="163" height="41" viewBox="0 0 163 41">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="10.57" gradientTransform="matrix(0.081, 0.997, -0.032, 0.003, 0.475, 0)" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#042d5b"/>
+      <stop offset="1" stop-color="#194f80"/>
+    </radialGradient>
+  </defs>
+  <text id="Notes" transform="translate(58 32)" fill="#030303" font-size="32" font-family="TrebuchetMS, Trebuchet MS"><tspan x="-40.344" y="0">Notes</tspan></text>
+  <text id="APP" transform="translate(134 32)" fill="#194f80" font-size="32" font-family="TrebuchetMS-Bold, Trebuchet MS" font-weight="700"><tspan x="-28.914" y="0">APP</tspan></text>
+  <rect id="Rectángulo_39" data-name="Rectángulo 39" width="41" height="4" rx="2" transform="translate(4) rotate(90)" fill="url(#radial-gradient)"/>
+</svg>

@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>{{ !data ? 'Create Note' : 'Edit Note' }}</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="flex flex-col my-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input [formControl]="titleControl" type="text" matInput placeholder="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea [formControl]="descriptionControl" style="resize: none" [rows]="4" matInput
+                placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+
+    <div class="flex justify-between">
+      <h3> Tags: </h3>
+      <button (click)="onAddCategory()" matTooltip="Add new category" mat-icon-button
+              aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <mat-chip-listbox [selectable]="true" [multiple]="true" aria-label="Color selection">
+
+      @for (category of (_super.categories$.value || []); track category.id) {
+        <mat-chip-option (selectionChange)="onClickChip($event, category)" [selected]="isSelected(category)"
+                         [value]="category"
+                         [color]="'accent'">{{ category.name }}
+        </mat-chip-option>
+      }
+    </mat-chip-listbox>
+
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button (click)="onClose()" mat-stroked-button>Cancel</button>
+  <button [disabled]="noteFormGroup.invalid" (click)="onSave()" mat-flat-button color="primary">
+    <div class="flex items-center gap-2">
+      Save
+    </div>
+  </button>
+</mat-dialog-actions>
+<app-loader [loading]="loading"></app-loader>
